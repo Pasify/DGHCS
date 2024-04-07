@@ -10,6 +10,7 @@ function Search() {
         size="lg"
         className=" caret-primary"
         icon={<IoIosSearch />}
+        color="accent"
       />
     </div>
   );

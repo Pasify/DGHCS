@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { MdDashboard } from "react-icons/md";
 import { IoPersonAdd } from "react-icons/io5";
 import { CiViewList, CiViewTimeline } from "react-icons/ci";
@@ -36,8 +36,13 @@ const MenuItem = [
   },
 ];
 function MenuProvider({ children }) {
+  const [selectedMenuItem, setSelectedMenuItem] = useState([]);
   return (
-    <MenuContext.Provider value={{ MenuItem }}>{children}</MenuContext.Provider>
+    <MenuContext.Provider
+      value={{ MenuItem, selectedMenuItem, setSelectedMenuItem }}
+    >
+      {children}
+    </MenuContext.Provider>
   );
 }
 function useMenu() {

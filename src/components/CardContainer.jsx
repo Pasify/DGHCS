@@ -36,7 +36,7 @@ function CardContainer() {
     <div className="flex gap-4 ">
       {cardItems.map((item) => (
         <Card
-          key={item}
+          key={item.title}
           icon={item.icon}
           cardTitle={item.title}
           value={item.value}
