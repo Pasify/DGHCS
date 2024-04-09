@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { MdDashboard } from "react-icons/md";
 import { IoPersonAdd } from "react-icons/io5";
 import { CiViewList, CiViewTimeline } from "react-icons/ci";
@@ -7,37 +7,42 @@ import { FaEdit } from "react-icons/fa";
 const MenuContext = createContext();
 const MenuItem = [
   {
-    name: "Admissions",
+    name: "admissions",
     icon: <MdDashboard />,
   },
   {
-    name: "Add Student",
+    name: "add student",
     icon: <IoPersonAdd />,
   },
   {
-    name: "View Student",
+    name: "view student",
     icon: <CiViewList />,
   },
   {
-    name: "Add Teacher",
+    name: "add teacher",
     icon: <IoPersonAdd />,
   },
   {
-    name: "view Teacher",
+    name: "view teacher",
     icon: <CiViewList />,
   },
   {
-    name: "view student Result",
+    name: "view student result",
     icon: <CiViewTimeline />,
   },
   {
-    name: "Enter Student Result",
+    name: "enter student result",
     icon: <FaEdit />,
   },
 ];
 function MenuProvider({ children }) {
+  const [selectedMenuItem, setSelectedMenuItem] = useState([]);
   return (
-    <MenuContext.Provider value={{ MenuItem }}>{children}</MenuContext.Provider>
+    <MenuContext.Provider
+      value={{ MenuItem, selectedMenuItem, setSelectedMenuItem }}
+    >
+      {children}
+    </MenuContext.Provider>
   );
 }
 function useMenu() {

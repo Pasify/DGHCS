@@ -1,8 +1,8 @@
-import SideMenu from "./components/SideMenu";
+import Layout from "./layout/Layout";
 function App() {
   return (
-    <div className="">
-      <SideMenu />
+    <div className="bg-gray-50">
+      <Layout />
     </div>
   );
 }

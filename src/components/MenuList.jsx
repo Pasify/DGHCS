@@ -2,14 +2,21 @@ import { List, ListItem } from "@material-tailwind/react";
 import { useMenu } from "../context/MenuContext";
 
 function MenuList() {
-  const { MenuItem } = useMenu();
+  const { MenuItem, selectedMenuItem, setSelectedMenuItem } = useMenu();
+  function handleSelectMenu(item) {
+    setSelectedMenuItem(item);
+  }
+
   return (
     <div>
       <List className="">
         {MenuItem.map((item) => (
           <ListItem
-            key={item}
-            className="capitalize  w-[90%] p-4 rounded text-sm gap-4  "
+            key={item.name}
+            className={`w-[90%]  gap-4 rounded p-4 text-sm capitalize 
+              `}
+            onClick={() => handleSelectMenu(item)}
+            selected={selectedMenuItem === item ? true : false}
           >
             {item.icon}
             {item.name}
