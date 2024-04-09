@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import { Button, Typography } from "@material-tailwind/react";
-import { FormProvider, useForm } from "react-hook-form";
-
 import { yupResolver } from "@hookform/resolvers/yup";
+import { FormProvider, useForm } from "react-hook-form";
 
 import validationSchema from "../../utils/validationSchema";
 import FormInput from "./FormInput";
+import { useStudent } from "../../context/StudentContext";
 
 function AddStudentForm() {
+  const { addStudentData } = useStudent();
   const methods = useForm({
     resolver: yupResolver(validationSchema),
   });
@@ -18,10 +19,16 @@ function AddStudentForm() {
   }, [methods, isSubmitSuccessful]);
   function submitForm(data) {
     console.table(data);
+    addStudentData(data);
   }
   return (
-    <div className="m-auto mt-10 w-[70%] rounded bg-background p-10">
-      <Typography variant="h3">Add Student</Typography>
+    <div className="m-auto  flex w-[75%] flex-col gap-10 rounded border border-midBlack2 bg-background p-10 shadow-sm">
+      <div className="mt-[-4rem] rounded bg-midBlack p-3">
+        <Typography variant="h4" color="white">
+          Add Student
+        </Typography>
+      </div>
+
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit(submitForm)}

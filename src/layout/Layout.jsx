@@ -5,10 +5,10 @@ import TopBar from "../components/TopBar";
 function Layout() {
   return (
     <div className="flex gap-4">
-      <div className="flex h-[100dvh]  p-4 w-[22%]">
+      <div className="flex h-[100dvh]  w-[22%] p-4">
         <SideMenu />
       </div>
-      <div className="w-[75%] py-4 flex flex-col gap-4 ">
+      <div className="flex w-[75%] flex-col gap-10 py-4 ">
         <TopBar />
         <Main />
       </div>

@@ -14,6 +14,7 @@ function FormInput({ inputType, inputLabel, nameType, validationSchema }) {
   function changeVisibility() {
     setShowPassword((prev) => !prev);
   }
+
   return (
     <div>
       <Input
@@ -26,7 +27,7 @@ function FormInput({ inputType, inputLabel, nameType, validationSchema }) {
         }
         label={inputLabel}
         color="accent"
-        containerProps={{ className: "caret-primary" }}
+        containerProps={{ className: `caret-secondary ` }}
         {...register(nameType, { validate: validationSchema[nameType] })}
         icon={
           nameType === "password" ? (
