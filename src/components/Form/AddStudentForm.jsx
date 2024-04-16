@@ -13,7 +13,7 @@ function AddStudentForm() {
     resolver: yupResolver(validationSchema),
   });
   const { isSubmitSuccessful } = methods.formState;
-
+  console.log(methods);
   useEffect(() => {
     if (isSubmitSuccessful) methods.reset();
   }, [methods, isSubmitSuccessful]);
@@ -61,7 +61,8 @@ function AddStudentForm() {
           <Button
             size="md"
             className="bg-accent capitalize"
-            onClick={methods.handleSubmit(submitForm)}
+            // onClick={methods.handleSubmit(submitForm)}
+            type="submit"
           >
             Add Student
           </Button>

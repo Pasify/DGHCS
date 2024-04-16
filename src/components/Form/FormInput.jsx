@@ -4,7 +4,13 @@ import { useFormContext } from "react-hook-form";
 import { BiShowAlt } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
 
-function FormInput({ inputType, inputLabel, nameType, validationSchema }) {
+function FormInput({
+  inputType,
+  inputLabel,
+  nameType,
+  validationSchema,
+  placeHolder,
+}) {
   const [showPassword, setShowPassword] = useState(false);
   const {
     register,
@@ -38,6 +44,7 @@ function FormInput({ inputType, inputLabel, nameType, validationSchema }) {
             )
           ) : null
         }
+        placeholder={placeHolder}
       />
       {errors[nameType] && (
         <Typography
