@@ -2,7 +2,7 @@ import SideMenu from "../components/SideMenu";
 import Main from "../components/Main";
 import TopBar from "../components/TopBar";
 
-function Layout() {
+function Dashboard() {
   return (
     <div className="flex gap-4">
       <div className="flex h-[100dvh]  w-[22%] p-4">
@@ -16,4 +16,4 @@ function Layout() {
   );
 }
 
-export default Layout;
+export default Dashboard;

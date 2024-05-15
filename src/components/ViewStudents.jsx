@@ -9,7 +9,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { useStudent } from "../context/StudentContext";
 // <FaEdit />
 // <MdDeleteForever />
-const TABLE_HEAD = ["UserName", "Email", "Phone", "Password", "", ""];
+const TABLE_HEAD = ["UserName", "Email", "Grade", "password", "", ""];
 // const TABLE_ROWS = [
 //   {
 //     username: "Elon Musk",
@@ -19,8 +19,14 @@ const TABLE_HEAD = ["UserName", "Email", "Phone", "Password", "", ""];
 //   },
 // ];
 function ViewStudents() {
-  const { studentData } = useStudent();
-  // console.log(studentData);
+  const { studentData, getExistingStudentRecord } = useStudent();
+  console.log(studentData);
+  // console.log(getExistingStudentRecord());
+  const studentRecord =
+    studentData.length <= 0 || getExistingStudentRecord().length <= 0
+      ? getExistingStudentRecord()
+      : studentData;
+  console.log(studentRecord);
 
   return (
     <div className=" flex w-full flex-col gap-10 rounded border border-midBlack2 bg-background p-4 shadow-sm">
@@ -31,7 +37,7 @@ function ViewStudents() {
       </div>
 
       <Card className="h-full w-full">
-        {studentData.length < 0 ? (
+        {studentRecord.length <= 0 ? (
           <Typography variant="h6" className="p-4">
             No student records
           </Typography>
@@ -56,11 +62,11 @@ function ViewStudents() {
               </tr>
             </thead>
             <tbody>
-              {studentData.map(
+              {studentRecord.map(
                 ({
                   userName: username,
                   emailAddress: email,
-                  phoneNumber: phone,
+                  grade: grade,
                   password,
                 }) => (
                   <tr key={password} className="even:bg-blue-gray-50/50">
@@ -88,7 +94,7 @@ function ViewStudents() {
                         color="blue-gray"
                         className="font-normal"
                       >
-                        {phone}
+                        {grade}
                       </Typography>
                     </td>
                     <td className="p-4">

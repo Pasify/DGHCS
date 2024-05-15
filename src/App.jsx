@@ -1,9 +1,10 @@
-import Layout from "./layout/Layout";
+import { LoginProvider } from "./context/LoginContext";
+import RoutesLayout from "./routes/RoutesLayout";
 function App() {
   return (
-    <div className="bg-gray-50">
-      <Layout />
-    </div>
+    <LoginProvider>
+      <RoutesLayout />
+    </LoginProvider>
   );
 }
 

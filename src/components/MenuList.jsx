@@ -1,4 +1,4 @@
-import { List, ListItem } from "@material-tailwind/react";
+import { Button, List, ListItem } from "@material-tailwind/react";
 import { useMenu } from "../context/MenuContext";
 
 function MenuList() {
@@ -23,6 +23,11 @@ function MenuList() {
           </ListItem>
         ))}
       </List>
+      <div>
+        <Button size="sm" className="bg-accent">
+          <span className="capitalize">Log out</span>
+        </Button>
+      </div>
     </div>
   );
 }

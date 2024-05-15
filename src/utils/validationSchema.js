@@ -5,10 +5,10 @@ const validationSchema = yup.object().shape({
     .string()
     .email("must be a valid email address")
     .required("email is required"),
-  phoneNumber: yup
-    .string()
-    .matches(/^\d{11}$/, "Phone number must be exactly 11 digits")
-    .required("Phone number is required"),
+  // phoneNumber: yup
+  //   .string()
+  //   .matches(/^\d{11}$/, "Phone number must be exactly 11 digits")
+  //   .required("Phone number is required"),
 
   password: yup
     .string()

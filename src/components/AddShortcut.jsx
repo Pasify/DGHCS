@@ -1,5 +1,4 @@
 import { Button } from "@material-tailwind/react";
-
 import { IoIosAdd } from "react-icons/io";
 
 function AddShortcut() {

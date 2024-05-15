@@ -10,6 +10,7 @@ function FormInput({
   nameType,
   validationSchema,
   placeHolder,
+  size,
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const {
@@ -24,6 +25,11 @@ function FormInput({
   return (
     <div>
       <Input
+        color="accent"
+        containerProps={{ className: `caret-secondary ` }}
+        label={inputLabel}
+        placeholder={placeHolder}
+        size={size}
         type={
           nameType === "password"
             ? showPassword
@@ -31,10 +37,6 @@ function FormInput({
               : "password"
             : inputType
         }
-        label={inputLabel}
-        color="accent"
-        containerProps={{ className: `caret-secondary ` }}
-        {...register(nameType, { validate: validationSchema[nameType] })}
         icon={
           nameType === "password" ? (
             showPassword ? (
@@ -44,7 +46,7 @@ function FormInput({
             )
           ) : null
         }
-        placeholder={placeHolder}
+        {...register(nameType, { validate: validationSchema[nameType] })}
       />
       {errors[nameType] && (
         <Typography
