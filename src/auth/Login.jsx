@@ -24,29 +24,30 @@ export function Login() {
 
   async function handleLogin(data) {
     try {
-      // setIsLoading(true);
+      setIsLoading(true);
+      // get data
       const serverData = await loginUser(data);
+      // set data
       setLoggedInUser(serverData);
+      // navigate to dashboard
       navigate("/dashboard");
-      // setIsLoading(false);
-      console.log(serverData);
+      setIsLoading(false);
+      // console.log(serverData);
     } catch (error) {
       toast.error(error.message, {
         duration: 8000,
         position: "top-center",
         icon: "🚩",
       });
-      setErrorMessage(error.message);
+      // setErrorMessage(error.message);
       throw error;
     } finally {
       setIsLoading(false);
     }
   }
-  useEffect(() => console.log(loggedInUser), [loggedInUser]);
+  // useEffect(() => console.log(loggedInUser), [loggedInUser]);
 
-  return isLoading ? (
-    <LoadingSpinner />
-  ) : (
+  return (
     <div
       className={`flex h-dvh items-center bg-cover  bg-no-repeat px-4`}
       style={{
@@ -88,12 +89,12 @@ export function Login() {
                 size="lg"
               />
               <Button
-                className=" bg-accent"
+                className=" flex items-center justify-center gap-1 bg-accent"
                 fullWidth
                 type="submit"
                 disabled={isLoading}
               >
-                login
+                {isLoading ? <LoadingSpinner /> : `login`}
               </Button>
             </form>
           </FormProvider>

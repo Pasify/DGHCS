@@ -1,30 +1,35 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Button, Typography } from "@material-tailwind/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
+import addStudentData from "../../api/addStudentData";
 import validationSchema from "../../utils/validationSchema";
 import FormInput from "./FormInput";
 import { useStudent } from "../../context/StudentContext";
-import { object } from "yup";
+// import { object } from "yup";
 
 function AddStudentForm() {
-  const { addStudentData } = useStudent();
+  // const { addStudentData } = useStudent();
   const methods = useForm({
     resolver: yupResolver(validationSchema),
   });
   const { isSubmitSuccessful } = methods.formState;
-  // console.log(methods);
+
   useEffect(() => {
     if (isSubmitSuccessful) methods.reset();
   }, [methods, isSubmitSuccessful]);
-  // const ref = useRef();
 
-  function submitForm(data) {
-    console.table(data);
-    addStudentData(data);
-    // const formData = new FormData(ref.current);
-    // const data2 = Object.fromEntries(formData);
+  async function submitForm(data) {
+    // addStudentData(data);
+    try {
+      const response = await addStudentData(data);
+      toast.success(`added ${response.email}`);
+    } catch (err) {
+      toast.error("failed to add");
+      console.log(err.message);
+    }
   }
 
   return (

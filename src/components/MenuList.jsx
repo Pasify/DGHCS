@@ -1,5 +1,6 @@
-import { Button, List, ListItem } from "@material-tailwind/react";
+import { List, ListItem } from "@material-tailwind/react";
 import { useMenu } from "../context/MenuContext";
+import Logout from "./Logout";
 
 function MenuList() {
   const { MenuItem, selectedMenuItem, setSelectedMenuItem } = useMenu();
@@ -23,10 +24,8 @@ function MenuList() {
           </ListItem>
         ))}
       </List>
-      <div>
-        <Button size="sm" className="bg-accent">
-          <span className="capitalize">Log out</span>
-        </Button>
+      <div className="px-4">
+        <Logout />
       </div>
     </div>
   );

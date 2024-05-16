@@ -1,5 +1,4 @@
 import axios from "axios";
-import toast from "react-hot-toast";
 
 async function loginUser(data) {
   try {
@@ -13,7 +12,7 @@ async function loginUser(data) {
     if (response.status !== 200) {
       throw new Error(`Request failed with status ${response.status}`);
     }
-    console.log(response);
+    // console.log(response);
     const serverData = await response.data;
     console.log(`data fetched`);
     return serverData;

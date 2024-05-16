@@ -1,6 +1,7 @@
 import SideMenu from "../components/SideMenu";
 import Main from "../components/Main";
 import TopBar from "../components/TopBar";
+import { Toaster } from "react-hot-toast";
 
 function Dashboard() {
   return (
@@ -11,6 +12,7 @@ function Dashboard() {
       <div className="flex w-[75%] flex-col gap-10 py-4 ">
         <TopBar />
         <Main />
+        <Toaster />
       </div>
     </div>
   );
