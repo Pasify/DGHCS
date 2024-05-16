@@ -7,9 +7,6 @@ function AddTeacherForm() {
   const methods = useForm({
     resolver: yupResolver(teachersValidationSchema),
   });
-  const { register, handleSubmit } = useForm({
-    resolver: yupResolver(teachersValidationSchema),
-  });
   return (
     <div className="m-auto  flex w-[75%] flex-col gap-10 rounded border border-midBlack2 bg-background p-10 shadow-sm">
       <div className="mt-[-4rem] rounded bg-midBlack p-3">
@@ -18,7 +15,7 @@ function AddTeacherForm() {
         </Typography>
       </div>
       <FormProvider {...methods}>
-        <form className="flex flex-col gap-6" onSubmit={handleSubmit()}>
+        <form className="flex flex-col gap-6" onSubmit={methods.handleSubmit()}>
           <FormInput
             inputType="text"
             inputLabel="Teachers Name"
@@ -36,7 +33,7 @@ function AddTeacherForm() {
             type="file"
             name="imageFile"
             className="w-[40%] rounded border border-midBlack2 p-4"
-            {...register("imageFile")}
+            {...methods.register("imageFile")}
           />
           <Button size="md" className="bg-accent capitalize" type="submit">
             Add teacher

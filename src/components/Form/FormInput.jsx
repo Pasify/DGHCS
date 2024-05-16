@@ -4,7 +4,14 @@ import { useFormContext } from "react-hook-form";
 import { BiShowAlt } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
 
-function FormInput({ inputType, inputLabel, nameType, validationSchema }) {
+function FormInput({
+  inputType,
+  inputLabel,
+  nameType,
+  validationSchema,
+  placeHolder,
+  size,
+}) {
   const [showPassword, setShowPassword] = useState(false);
   const {
     register,
@@ -18,6 +25,11 @@ function FormInput({ inputType, inputLabel, nameType, validationSchema }) {
   return (
     <div>
       <Input
+        color="accent"
+        containerProps={{ className: `caret-secondary ` }}
+        label={inputLabel}
+        placeholder={placeHolder}
+        size={size}
         type={
           nameType === "password"
             ? showPassword
@@ -25,10 +37,6 @@ function FormInput({ inputType, inputLabel, nameType, validationSchema }) {
               : "password"
             : inputType
         }
-        label={inputLabel}
-        color="accent"
-        containerProps={{ className: `caret-secondary ` }}
-        {...register(nameType, { validate: validationSchema[nameType] })}
         icon={
           nameType === "password" ? (
             showPassword ? (
@@ -38,6 +46,7 @@ function FormInput({ inputType, inputLabel, nameType, validationSchema }) {
             )
           ) : null
         }
+        {...register(nameType, { validate: validationSchema[nameType] })}
       />
       {errors[nameType] && (
         <Typography

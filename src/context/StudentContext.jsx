@@ -1,12 +1,16 @@
 import { createContext, useContext, useState } from "react";
-import { addStudentToLocalStorage } from "../utils/storage";
+import {
+  addStudentToLocalStorage,
+  getExistingStudentRecord,
+} from "../utils/storage";
 // import { storeData } from "../utils/storage";
 
 const StudentContext = createContext();
 
 function StudentProvider({ children }) {
   const [studentData, setStudentData] = useState(
-    JSON.parse(localStorage.getItem("students")),
+    // JSON.parse(localStorage.getItem("students")),
+    [],
   );
   function addStudentData(student) {
     const studentsInformation = addStudentToLocalStorage(student);
@@ -17,6 +21,7 @@ function StudentProvider({ children }) {
       value={{
         studentData,
         addStudentData,
+        getExistingStudentRecord,
       }}
     >
       {children}

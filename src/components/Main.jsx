@@ -3,6 +3,7 @@ import { StudentProvider } from "../context/StudentContext";
 import CardContainer from "./CardContainer";
 import AddStudentForm from "./Form/AddStudentForm";
 import AddTeacherForm from "./Form/AddTeacherForm";
+import ViewStudentResult from "./ViewStudentResult";
 import ViewStudents from "./ViewStudents";
 
 function Main() {
@@ -14,7 +15,7 @@ function Main() {
       "view student": <ViewStudents />,
       "add teacher": <AddTeacherForm />,
       "view teacher": "view teacher",
-      "view student result": "view student result",
+      "view student result": <ViewStudentResult />,
       "enter student result": "enter student result",
       default: "admission",
     };
