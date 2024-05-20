@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import dgchsAbout from "../../assets/images/dgchsabout.jpg";
 import styles from "./AboutUsContent.module.css";
 function AboutUsContent() {
@@ -15,9 +16,9 @@ function AboutUsContent() {
             academically accomplished but also equipped with essential life
             skills and values.
           </p>
-          <a href="" className="hero-btn">
+          <Link to="#" className="hero-btn">
             EXPLORE NOW
-          </a>
+          </Link>
         </div>
         <div className={styles.about_column}>
           <img src={dgchsAbout} />
