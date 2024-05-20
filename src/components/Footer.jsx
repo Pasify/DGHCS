@@ -10,7 +10,7 @@ function Footer() {
         <Link to="about">about us</Link>
         <Link to="programmes">programmes</Link>
         <Link to="blog">blog</Link>
-        <Link to="portal">portal</Link>
+        <Link to="login">portal</Link>
       </div>
 
       <div className={styles.col_3}>

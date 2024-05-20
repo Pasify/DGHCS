@@ -5,7 +5,9 @@ function AboutUsContent() {
     <section className={styles.aboutus}>
       <div className="row">
         <div className={styles.about_column}>
-          <h1>we Are The Premier Choice For Your Child's Education</h1>
+          <h1 className="text-3xl font-bold capitalize">
+            we Are The Premier Choice For Your Child's Education
+          </h1>
           <p>
             We believe in nurturing not only the intellect but also the
             character of every student. Divine Grace places a strong emphasis on

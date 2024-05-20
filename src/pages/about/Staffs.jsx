@@ -5,7 +5,7 @@ import styles from "./Staff.module.css";
 function Staffs() {
   return (
     <section className="team">
-      <h1 className="staffheading">
+      <h1 className={styles.staffheading}>
         <strong>Meet Our Board of Directors</strong>
       </h1>
       <div className={styles.container}>

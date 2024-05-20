@@ -42,11 +42,14 @@
 }
 
 .container .card .content .contentBx h4 {
-    color: #000;
-    font-size: 1.7rem;
+    color: #f1a3a3;
+    font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
-    letter-spacing: 1px;
+    width: 90%;
+    text-wrap: balance;
+    line-height: 1;
+    /* letter-spacing: 1px; */
 }
 
 .container .card .content .contentBx h5 {
@@ -74,4 +77,10 @@
 
 .staffheading {
     text-align: center;
+    font-size: 1.7rem;
+}
+
+.contentBx {
+    display: grid;
+    place-items: center;
 }
