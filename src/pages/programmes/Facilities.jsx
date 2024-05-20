@@ -5,17 +5,20 @@ import styles from "./Facilities.module.css";
 function Facilities() {
   return (
     <section className={styles.facilities}>
-      <h1>Our Facilities</h1>
-      <p>
-        Divine Grace Comprehensive High School boast of a range of modern and
-        well equipped facilities, fostering an enriching educational environment
-      </p>
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="heading">Our Facilities</h1>
+        <p className="heading_summary">
+          Divine Grace Comprehensive High School boast of a range of modern and
+          well equipped facilities, fostering an enriching educational
+          environment
+        </p>
+      </div>
 
       <div className="row">
         <div className={styles.facilities_column}>
           <img src={library} />
-          <h3>World Class Library</h3>
-          <p>
+          <h3 className="text-lg font-semibold">World ClassName Library</h3>
+          <p className="text-balance">
             Divine Grace High School's library, a hub of knowledge, offers
             students a diverse collection of resources in a modern and serene
             environment. Equipped with the latest materials, it promotes
@@ -25,8 +28,11 @@ function Facilities() {
 
         <div className={styles.facilities_column}>
           <img src={dgchsabout} />
-          <h3> Cutting-Edge Computer Laboratory</h3>
-          <p>
+          <h3 className="text-lg font-semibold">
+            {" "}
+            Cutting-Edge Computer Laboratory
+          </h3>
+          <p className="text-balance">
             At Divine Grace, we recognize the pivotal role of technology in
             shaping the future. Our state-of-the-art Computer Laboratory stands
             as a testament to our commitment to providing students with an
@@ -36,8 +42,8 @@ function Facilities() {
 
         <div className={styles.facilities_column}>
           <img src={cafeteria} />
-          <h3>School Cafeteria</h3>
-          <p>
+          <h3 className="text-lg font-semibold">School Cafeteria</h3>
+          <p className="text-balance">
             At Divine Grace, we believe that a nourished body contributes to a
             vibrant mind. Our school cafeteria is not just a place to refuel;
             it's a social hub where students come together, creating a lively
