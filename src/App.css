@@ -1,0 +1,201 @@
+.heading {
+
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.heading_summary {
+    width: 65%;
+    /* text-align: center; */
+}
+
+.row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+
+}
+
+@media(max-width: 700px) {
+    .row {
+        flex-direction: column;
+    }
+
+}
+
+
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid brown;
+    padding: 12px 34px;
+    background: brown;
+    position: relative;
+    cursor: pointer;
+}
+
+.hero-btn:hover {
+    border: 1px solid #C08F4F;
+    background: #C08F4F;
+    transition: 1s;
+}
+
+/*------ Call to Action ------*/
+.cta {
+    margin: 100px auto;
+    width: 80%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./assets/images/dghcscomputer.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.cta h1 {
+    color: #fff;
+    margin-bottom: 40px;
+    padding: 0;
+}
+
+@media (max-width: 700px) {
+    .cta h1 {
+        font-size: 24px;
+    }
+}
+
+
+.formGroup input {
+    width: 400px;
+    height: 45px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    outline: none;
+    border: none;
+}
+
+
+.formGroup button {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: brown;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 15px;
+}
+
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons i {
+    font-size: 22px;
+    margin: 10px;
+    cursor: pointer;
+
+}
+
+
+
+
+/*   colors
+        #f2f3f7
+        #d2dce9
+        #36187d
+        #6c758f
+        #0196e3
+ */
+
+
+.icons .fa {
+    color: #f44336;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+.fa-heart-o {
+    color: #f44336;
+
+}
+
+
+/*-------About Us -------*/
+
+/*------ About Us Content ------*/
+
+
+
+/*----- ACCOUNT/PORTAL PAGE -----*/
+/* .account-page {
+    padding: 50PX;
+}
+
+.form-container {
+    background: #fff;
+    width: 300px;
+    height: 525px;
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    margin: auto;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.form-container span {
+    font-weight: bold;
+    padding: 0 10px;
+    color: brown;
+    cursor: pointer;
+    width: 100px;
+    display: inline-block;
+}
+
+.form-btn {
+    display: inline-block;
+}
+
+.form-container form {
+    max-width: 300px;
+    padding: 0 20px;
+    position: absolute;
+    top: 130px;
+    transition: transform 1s;
+}
+
+.form input {
+    width: 100%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+}
+
+#LoginForm {
+    left: -300px;
+}
+
+#RegForm {
+    left: 0;
+}
+
+form a {
+    font-size: 14px;
+}
+
+#Indicator {
+    width: 75px;
+    border: none;
+    background: #C08F4F;
+    height: 3px;
+    margin-top: 8px;
+    transform: translateX(100px);
+    transition: transform 1s;
+} */

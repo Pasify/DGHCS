@@ -15,6 +15,9 @@ function AddStudentForm() {
   const methods = useForm({
     resolver: yupResolver(validationSchema),
   });
+  const {
+    formState: { errors },
+  } = methods;
   const { isSubmitSuccessful } = methods.formState;
 
   useEffect(() => {
@@ -25,7 +28,7 @@ function AddStudentForm() {
     // addStudentData(data);
     try {
       const response = await addStudentData(data);
-      toast.success(`added ${response.email}`);
+      toast.success(`added ${response.data.name}`);
     } catch (err) {
       toast.error("failed to add");
       console.log(err.message);
@@ -49,13 +52,13 @@ function AddStudentForm() {
           <FormInput
             inputType="text"
             inputLabel="User Name"
-            nameType="userName"
+            nameType="name"
             validationSchema={validationSchema}
           />
           <FormInput
             inputType="email"
             inputLabel="Email Address"
-            nameType="emailAddress"
+            nameType="email"
             validationSchema={validationSchema}
           />
 
@@ -71,6 +74,7 @@ function AddStudentForm() {
             className=" rounded-md border-[1px] border-blue-gray-200 bg-transparent p-2 text-blue-gray-500 focus-visible:border-2  focus-visible:border-blue-gray-500"
             {...methods.register("grade")}
           >
+            <option value="">Select Grade</option>
             <option value="Grade 1">Grade 1</option>
             <option value="Grade 2">Grade 2</option>
             <option value="Grade 3">Grade 3</option>
@@ -78,6 +82,19 @@ function AddStudentForm() {
             <option value="Grade 5">Grade 5</option>
             <option value="Grade 6">Grade 6</option>
           </select>
+          <>
+            {errors.grade && (
+              <Typography
+                variant="small"
+                color="red"
+                role="alert"
+                className="mt-[-1.2rem] text-xs"
+              >
+                {errors.grade?.message}
+              </Typography>
+            )}
+          </>
+
           <Button size="md" className="bg-accent capitalize" type="submit">
             Add Student
           </Button>

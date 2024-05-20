@@ -29,6 +29,7 @@ export function Login() {
       const serverData = await loginUser(data);
       // set data
       setLoggedInUser(serverData);
+
       // navigate to dashboard
       navigate("/dashboard");
       setIsLoading(false);

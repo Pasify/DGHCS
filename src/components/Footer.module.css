@@ -1,0 +1,61 @@
+.footer {
+    margin-top: 80px;
+    width: 100%;
+    padding: 60px 10%;
+    background: #333;
+    color: #efefef;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.col_1,
+.col_2,
+.col_3 {
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+}
+
+.footer div h3 {
+    font-weight: bold;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.col_2 {
+
+
+
+    .footer_form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+}
+
+
+
+.col_1 a {
+    display: block;
+    text-decoration: none;
+    color: #efefef;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.col_1 a:not(:last-child) {
+
+    margin-bottom: 10px;
+}
+
+
+
+.branding {
+    text-align: center;
+
+}
