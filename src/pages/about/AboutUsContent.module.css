@@ -1,0 +1,23 @@
+.aboutus {
+    width: 80%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+.about_column {
+    flex-basis: 48%;
+    padding: 30px 2px;
+}
+
+.about_column img {
+    width: 120%;
+}
+
+.about_column h1 {
+    padding-top: 0;
+}
+
+.about_column p {
+    padding: 15px 0 25px;
+}

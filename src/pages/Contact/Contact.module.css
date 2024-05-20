@@ -1,0 +1,56 @@
+/*----- Contact Us Page -----*/
+.location {
+    width: 80%;
+    margin: auto;
+    padding: 80px 0;
+}
+
+.location iframe {
+    width: 100%;
+}
+
+.contact_us {
+    width: 80%;
+    margin: auto;
+}
+
+.contact_column {
+    flex-basis: 48%;
+    margin-bottom: 30px;
+
+}
+
+.contact_column div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 2rem;
+}
+
+.contact_column div .fa {
+    font-size: 28px;
+    color: brown;
+    margin: 10px;
+    margin-right: 30px;
+}
+
+.contact_column div p {
+    padding: 0;
+}
+
+.contact_column div h5 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #000;
+    font-weight: 400;
+}
+
+.contact_column input,
+.contact_column textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 17px;
+    outline: none;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
