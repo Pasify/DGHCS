@@ -10,14 +10,14 @@ function Main() {
   const { selectedMenuItem } = useMenu();
   function getMenuOption(selected) {
     const menuOption = {
-      admission: "admission",
+      overview: <CardContainer />,
       "add student": <AddStudentForm />,
-      "view student": <ViewStudents />,
+      "view students": <ViewStudents />,
       "add teacher": <AddTeacherForm />,
-      "view teacher": "view teacher",
+      "view teachers": "view teacher",
       "view student result": <ViewStudentResult />,
       "enter student result": "enter student result",
-      default: "admission",
+      default: <CardContainer />,
     };
     return menuOption[selected] ?? menuOption.default;
   }

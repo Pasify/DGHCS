@@ -6,14 +6,14 @@ function Footer() {
     <div className={styles.footer}>
       <div className={styles.col_1}>
         <h3>USEFUL LINKS</h3>
-        <Link to="index">home</Link>
+        <Link to="/">home</Link>
         <Link to="about">about us</Link>
         <Link to="programmes">programmes</Link>
         <Link to="blog">blog</Link>
         <Link to="login">portal</Link>
       </div>
 
-      <div className={styles.col_3}>
+      <div className={`${styles.col_3} `}>
         <h3>CONTACT</h3>
         <p className="w-[70%]">
           14 Okigwe Road By Ekene (GRA) Aba, Abia State. Nigeria.
@@ -31,9 +31,9 @@ function Footer() {
           <a href="https://bit.ly/samwebdeveloper"> Mr Sam</a>
         </p>
       </div>
-      <div className={styles.col_2}>
+      <div className={`${styles.col_2}   `}>
         <h3>NEWSLETTER</h3>
-        <form className={styles.footer_form}>
+        <form className={`${styles.footer_form} `}>
           <Input
             type="email"
             color="white"

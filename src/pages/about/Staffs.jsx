@@ -1,6 +1,8 @@
 import nnennaPhoto from "../../assets/images/nnenna.jpg";
 import agunwamiPhoto from "../../assets/images/agunwami (1).jpg";
 import lovinaPhoto from "../../assets/images/lovina.jpg";
+import amarachOkoroafo from "../../assets/images/amarachiOkoroafo.jpg";
+import amakaOnwuka from "../../assets/images/amakaOnwuka.jpg";
 import styles from "./Staff.module.css";
 function Staffs() {
   return (
@@ -34,7 +36,7 @@ function Staffs() {
         <div className={styles.card}>
           <div className={styles.content}>
             <div className={styles.imgBx}>
-              <img src="images/amarachi.jpg" />
+              <img src={amarachOkoroafo} />
             </div>
             <div className={styles.contentBx}>
               <h4>Amarachi Okoroafor</h4>
@@ -45,7 +47,7 @@ function Staffs() {
         <div className={styles.card}>
           <div className={styles.content}>
             <div className={styles.imgBx}>
-              <img src="images/amaka.jpg" />
+              <img src={amakaOnwuka} />
             </div>
             <div className={styles.contentBx}>
               <h4>Amaka Onwuka</h4>
