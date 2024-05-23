@@ -2,13 +2,15 @@ import styles from "./ProgrammesContent.module.css";
 function ProgrammesContent() {
   return (
     <section className={styles.programmes}>
-      <h1>Programmes We Offer</h1>
-      <p>
-        We offer a broad range of subjects and programs to cater to the diverse
-        educational needs of our students. The curriculum is structured to
-        provide a well-rounded education that includes both academic and
-        practical skills.
-      </p>
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="heading">Programmes We Offer</h1>
+        <p className="heading_summary">
+          We offer a broad range of subjects and programs to cater to the
+          diverse educational needs of our students. The curriculum is
+          structured to provide a well-rounded education that includes both
+          academic and practical skills.
+        </p>
+      </div>
       <div className="row">
         <div className={styles.programme_column}>
           <h3>Junior Secondary School (JSS)</h3>

@@ -1,10 +1,11 @@
 .footer {
-    margin-top: 80px;
+    /* margin-top: 80px; */
     width: 100%;
     padding: 60px 10%;
     background: #333;
     color: #efefef;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 4rem;
 }
@@ -15,7 +16,7 @@
     padding-inline: 2rem;
     display: flex;
     flex-direction: column;
-    flex-basis: auto;
+    /* flex-basis: ; */
 }
 
 .footer div h3 {
@@ -24,20 +25,15 @@
     letter-spacing: 1px;
 }
 
-.col_2 {
 
 
-
-    .footer_form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 1.5rem;
-    }
+.footer_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
 }
-
-
 
 .col_1 a {
     display: block;
@@ -49,7 +45,6 @@
 }
 
 .col_1 a:not(:last-child) {
-
     margin-bottom: 10px;
 }
 
@@ -58,4 +53,34 @@
 .branding {
     text-align: center;
 
+}
+
+@media screen and (max-width : 700px) {
+    .footer {
+        padding: 40px 10%;
+    }
+
+    .col_1,
+    .col_2,
+    .col_3 {
+        padding-inline: 1rem;
+        width: 100%;
+    }
+
+    .col_2 {
+        order: 1;
+    }
+
+    .col_1 {
+        order: 2;
+    }
+
+    .col_3 {
+        order: 3;
+    }
+
+    .footer_form {
+
+        gap: 1rem;
+    }
 }

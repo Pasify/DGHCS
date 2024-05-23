@@ -19,27 +19,12 @@
     gap: 3rem;
 }
 
-.text_box h1 {
-    font-size: 3.5rem;
-    font-weight: bold;
-    width: 60%;
-    line-height: 1;
-}
 
-.text_box p {
-    /* margin: 10px 0 40px; */
-    font-size: 1.2rem;
-    color: #fff;
-    line-height: 25px;
-    max-width: 65%;
-    min-height: 50%;
-    width: 100%;
-    /* leading-1 w-[full] min-w-[50%] max-w-[65%] text-balance text-3xl font-semibold */
-
-}
 
 @media(max-width: 700px) {
-    .text_box h1 {
-        font-size: 22px;
+    .text_box {
+        width: 100%;
     }
+
+
 }

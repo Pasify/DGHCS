@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Card, Button, Typography } from "@material-tailwind/react";
@@ -11,13 +11,13 @@ import LoginValidationSchema from "../utils/loginValidationSchema";
 
 import logo from "../assets/dghcslogo.png";
 import schoolImage from "../assets/image.png";
-import loginUser from "../api/api";
+import loginUser from "../api/loginApi";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 export function Login() {
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const { loggedInUser, setLoggedInUser } = useLogin();
+
+  const { login } = useLogin();
   const navigate = useNavigate();
 
   const methods = useForm({ resolver: yupResolver(LoginValidationSchema) });
@@ -26,12 +26,11 @@ export function Login() {
     try {
       setIsLoading(true);
       // get data
-      const serverData = await loginUser(data);
-      // set data
-      setLoggedInUser(serverData);
+      await login(data);
 
       // navigate to dashboard
       navigate("/dashboard");
+
       setIsLoading(false);
       // console.log(serverData);
     } catch (error) {
@@ -46,20 +45,19 @@ export function Login() {
       setIsLoading(false);
     }
   }
-  // useEffect(() => console.log(loggedInUser), [loggedInUser]);
 
   return (
     <div
-      className={`flex h-dvh items-center bg-cover  bg-no-repeat px-4`}
+      className={`flex h-dvh flex-wrap items-center bg-cover  bg-no-repeat px-4`}
       style={{
         backgroundImage: `linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(${schoolImage})`,
       }}
     >
-      <div className="basis-1/2  ">
+      <div className="h-24 basis-full sm:h-dvh  sm:basis-1/2  ">
         <img src={logo} className="size-full object-contain drop-shadow-2xl" />
       </div>
 
-      <div className="flex h-[90%] basis-1/2 items-center justify-center rounded bg-white/85 backdrop-blur-lg">
+      <div className="flex h-[70%] basis-full items-center justify-center rounded bg-white/85 backdrop-blur-lg sm:h-[90%] sm:basis-1/2">
         <Card color="transparent" shadow={false}>
           <div className="text-center">
             <Typography variant="h2" color="blue-gray">
@@ -99,6 +97,12 @@ export function Login() {
               </Button>
             </form>
           </FormProvider>
+          <div className="flex justify-center">
+            <Link to="/" className="w-[15%]">
+              <Button size="sm">&larr;</Button>
+            </Link>
+          </div>
+
           <Toaster />
         </Card>
       </div>

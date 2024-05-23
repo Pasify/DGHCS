@@ -7,13 +7,17 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
+import { useLogin } from "../context/LoginContext";
 function Logout() {
   const [open, setOpen] = React.useState(false);
+
   const navigate = useNavigate();
+  const { logOut } = useLogin();
   const handleOpen = () => setOpen(!open);
-  const logout = () => {
+  const handleLogout = () => {
     handleOpen();
-    navigate("/");
+    // navigate("/login");
+    logOut();
   };
   return (
     <>
@@ -47,7 +51,7 @@ function Logout() {
           >
             <span>Cancel</span>
           </Button>
-          <Button variant="gradient" color="black" onClick={logout}>
+          <Button variant="gradient" color="black" onClick={handleLogout}>
             <span>Logout</span>
           </Button>
         </DialogFooter>
