@@ -40,7 +40,7 @@ function Contact() {
             <div className={styles.contact_column}>
               <i className="fa fa-envelope"></i>
               <span>
-                <h5>info@dgchs.com</h5>
+                <h5>dgchschools@gmail.com</h5>
                 <p>
                   <strong>Email us your Query</strong>
                 </p>
