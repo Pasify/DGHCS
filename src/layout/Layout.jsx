@@ -6,7 +6,7 @@ function Layout({ children }) {
   const location = useLocation();
   const isNotAtLoginOrDashboard =
     location.pathname !== "/login" && location.pathname !== "/dashboard";
-  // console.log(location);
+
   return (
     <div>
       {isNotAtLoginOrDashboard && <Header />}

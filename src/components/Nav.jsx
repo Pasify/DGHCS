@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import schoolLogo from "../assets/images/dghcslogo.png";
 import styles from "./Nav.module.css";
 
@@ -53,9 +53,9 @@ function Nav() {
         <ul className={styles.nav_link_list}>
           {NavLinks.map((ele) => (
             <li key={ele} onClick={handleOpenMenu}>
-              <Link to={ele.location}>
+              <NavLink to={ele.location}>
                 <strong className="uppercase">{ele.title}</strong>
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>

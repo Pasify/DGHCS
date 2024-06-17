@@ -21,7 +21,9 @@ function Contact() {
             <div>
               <i className="fa fa-home"></i>
               <span>
-                <h5>14 Okigwe Road By Ekene (GRA) Aba,</h5>
+                <h5>
+                  14 Okigwe Road By Ekenna (GRA) Aba, Abia State. Nigeria.
+                </h5>
                 <p>
                   <strong>Abia State. Nigeria.</strong>
                 </p>

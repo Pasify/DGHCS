@@ -1,5 +1,4 @@
 import axios from "axios";
-import { setToken } from "../utils/token";
 
 async function loginUser(data) {
   try {

@@ -56,7 +56,7 @@ function BlogContent() {
           </div>
         </div>
         <div className={styles.blog_right}>
-          <h3>Post Categories</h3>
+          <h3>Categories</h3>
           <div>
             <span>Student Life</span>
             <span>21</span>

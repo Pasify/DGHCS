@@ -16,7 +16,7 @@ function Footer() {
       <div className={`${styles.col_3} `}>
         <h3>CONTACT</h3>
         <p className="w-[70%]">
-          14 Okigwe Road By Ekene (GRA) Aba, Abia State. Nigeria.
+          14 Okigwe Road By Ekenna (GRA) Aba, Abia State. Nigeria.
         </p>
         <div className="social-icons">
           <i className="fa-brands fa-facebook"></i>
