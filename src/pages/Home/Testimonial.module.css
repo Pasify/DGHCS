@@ -39,6 +39,8 @@
 .image_container > img {
     object-fit: cover;
     aspect-ratio: auto;
+    height: 100%;
+    width: 100%;
 
 }
 

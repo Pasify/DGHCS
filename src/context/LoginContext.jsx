@@ -1,42 +1,51 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { clearToken, getToken, setToken } from "../utils/token";
+import {
+  clearToken,
+  getToken,
+  isAuthenticated as isUserAuthenticated,
+  setToken,
+} from "../utils/token";
 import loginUser from "../api/loginApi";
 
 const LoginContext = createContext();
 function LoginProvider({ children }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [isAuthenticated, setIsAuthenticated] = useState(!!getToken());
+
   useEffect(() => {
     const token = getToken();
-    token && setIsLoggedIn(true);
+    if (token) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
   }, []);
-
   async function login(userDetails) {
     try {
       const response = await loginUser(userDetails);
       setToken(response.token);
-      setIsLoggedIn(true);
-
+      console.log(loggedInUser);
       // set data
-      setLoggedInUser(response.data);
+      setLoggedInUser(response);
     } catch (error) {
       console.log(error.message);
       throw error;
     }
   }
   function logOut() {
-    setIsLoggedIn(false);
+    setIsAuthenticated(false);
     clearToken();
+    setLoggedInUser({});
   }
   return (
     <LoginContext.Provider
       value={{
-        isLoggedIn,
-        setIsLoggedIn,
         loggedInUser,
         setLoggedInUser,
         login,
         logOut,
+        isAuthenticated,
+        setIsAuthenticated,
       }}
     >
       {children}

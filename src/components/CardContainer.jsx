@@ -9,7 +9,8 @@ const cardItems = [
     title: "student",
     backgroundColor: "",
     icon: <PiStudent size={20} color="white" />,
-    value: 2194,
+    value: JSON.parse(sessionStorage.getItem("students")).length,
+    // value: 10,
   },
   {
     title: "teacher",

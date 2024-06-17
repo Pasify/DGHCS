@@ -1,17 +1,27 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import {
   addStudentToLocalStorage,
   getExistingStudentRecord,
 } from "../utils/storage";
+import getStudents from "../api/getStudents";
 // import { storeData } from "../utils/storage";
 
 const StudentContext = createContext();
 
 function StudentProvider({ children }) {
-  const [studentData, setStudentData] = useState(
-    // JSON.parse(localStorage.getItem("students")),
-    [],
-  );
+  const [studentData, setStudentData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getExistingStudentRecord();
+        setStudentData(data);
+      } catch (error) {
+        throw new Error(error);
+      }
+    }
+    fetchData();
+  }, []);
   function addStudentData(student) {
     const studentsInformation = addStudentToLocalStorage(student);
     setStudentData(studentsInformation);
@@ -21,7 +31,6 @@ function StudentProvider({ children }) {
       value={{
         studentData,
         addStudentData,
-        getExistingStudentRecord,
       }}
     >
       {children}

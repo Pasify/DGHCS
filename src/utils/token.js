@@ -11,3 +11,8 @@ export function getToken() {
 export function clearToken() {
   sessionStorage.clear();
 }
+
+export function isAuthenticated() {
+  const token = getToken();
+  return !!token;
+}

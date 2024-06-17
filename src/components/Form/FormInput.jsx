@@ -40,9 +40,9 @@ function FormInput({
         icon={
           nameType === "password" ? (
             showPassword ? (
-              <BiShowAlt onClick={() => changeVisibility()} />
-            ) : (
               <BiHide onClick={() => changeVisibility()} />
+            ) : (
+              <BiShowAlt onClick={() => changeVisibility()} />
             )
           ) : null
         }

@@ -1,13 +1,15 @@
 import { Navigate, Outlet } from "react-router-dom";
+
+// import { isAuthenticated } from "../utils/token";
 import { useLogin } from "../context/LoginContext";
 import { getToken } from "../utils/token";
 
 function ProtectedRoutes() {
-  // const { loggedInUser } = useLogin();
-  const { isLoggedIn, loggedInUser } = useLogin();
+  const { isAuthenticated } = useLogin();
+  // const hasToken = isAuthenticated();
   const hasToken = getToken();
-  // return userHasToken ? <Outlet /> : <Navigate to="/" />;
-  return isLoggedIn && hasToken ? <Outlet /> : <Navigate to="/login" />;
+  // console.log(hasToken);
+  // return hasToken ? <Outlet /> : <Navigate to="/login" />;
+  return isAuthenticated || hasToken ? <Outlet /> : <Navigate to="/login" />;
 }
-
 export default ProtectedRoutes;
