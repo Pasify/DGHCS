@@ -7,6 +7,7 @@ import { useLogin } from "../context/LoginContext";
 function Dashboard() {
   const { loggedInUser } = useLogin();
   console.log(loggedInUser);
+
   return (
     <div className="flex gap-4">
       <div className="flex h-[100dvh]  w-[22%] p-4">

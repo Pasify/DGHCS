@@ -6,10 +6,11 @@ import {
   setToken,
 } from "../utils/token";
 import loginUser from "../api/loginApi";
+import { getCurrentUser, setCurrentUser } from "../utils/storage";
 
 const LoginContext = createContext();
 function LoginProvider({ children }) {
-  const [loggedInUser, setLoggedInUser] = useState({});
+  const [loggedInUser, setLoggedInUser] = useState(getCurrentUser());
   const [isAuthenticated, setIsAuthenticated] = useState(!!getToken());
 
   useEffect(() => {
@@ -24,9 +25,10 @@ function LoginProvider({ children }) {
     try {
       const response = await loginUser(userDetails);
       setToken(response.token);
-      console.log(loggedInUser);
-      // set data
+      // set
+      const { studentID, name, role } = response;
       setLoggedInUser(response);
+      setCurrentUser({ studentID, name, role });
     } catch (error) {
       console.log(error.message);
       throw error;

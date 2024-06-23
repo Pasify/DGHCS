@@ -40,3 +40,24 @@ export function addStudentToLocalStorage(student) {
   //   return the updated student data
   return listOfStudents;
 }
+
+export function getTotalNumberOfStudent() {
+  const existingNumberOfStudents = sessionStorage.getItem("students");
+  const totalNumberOfStudent = existingNumberOfStudents
+    ? JSON.parse(existingNumberOfStudents).length
+    : 0;
+
+  return totalNumberOfStudent;
+}
+
+export function setCurrentUser(user) {
+  sessionStorage.setItem("userType", JSON.stringify(user));
+}
+export function getCurrentUser() {
+  const currentUser = sessionStorage.getItem("userType");
+  return currentUser ? JSON.parse(currentUser) : {};
+}
+
+export function removeCurrentUser() {
+  sessionStorage.removeItem("userType");
+}
