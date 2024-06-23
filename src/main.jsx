@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@material-tailwind/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import App from "./App.jsx";
 
 // import "./App.css";
@@ -13,11 +13,11 @@ import { LoginProvider } from "./context/LoginContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider value={theme}>
-      <MenuProvider>
-        <LoginProvider>
+      <LoginProvider>
+        <MenuProvider>
           <App />
-        </LoginProvider>
-      </MenuProvider>
+        </MenuProvider>
+      </LoginProvider>
     </ThemeProvider>
   </React.StrictMode>,
 );

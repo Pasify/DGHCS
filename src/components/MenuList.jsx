@@ -3,7 +3,8 @@ import { useMenu } from "../context/MenuContext";
 import Logout from "./Logout";
 
 function MenuList() {
-  const { MenuItem, selectedMenuItem, setSelectedMenuItem } = useMenu();
+  const { MenuItem, selectedMenuItem, setSelectedMenuItem, filteredMenuItem } =
+    useMenu();
   function handleSelectMenu(item) {
     setSelectedMenuItem(item);
   }
@@ -11,7 +12,7 @@ function MenuList() {
   return (
     <div>
       <List className="">
-        {MenuItem.map((item) => (
+        {filteredMenuItem.map((item) => (
           <ListItem
             key={item.name}
             className={`w-[90%]  gap-4 rounded p-4 text-sm capitalize 
