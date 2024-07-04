@@ -30,7 +30,7 @@ function Main() {
       "view student result": <ViewStudentResult />,
       "enter student result": "enter student result",
       default:
-        loggedInUser?.role === "USER" ? <h1>welcome</h1> : <CardContainer />,
+        loggedInUser?.role === "USER" ? <StudentHome /> : <CardContainer />,
     };
     return menuOption[selected] ?? menuOption.default;
   }

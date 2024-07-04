@@ -75,11 +75,16 @@ function MenuProvider({ children }) {
 
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
   const [userRole, setUserRole] = useState(loggedInUser?.role);
+  // useEffect(() => {
+  //   const user = JSON.parse(sessionStorage.getItem("userType"));
+  //   setUserRole(user.role);
+  // }, [loggedInUser]);
   useEffect(() => {
     if (loggedInUser && loggedInUser.role) {
       setUserRole(loggedInUser.role);
     }
   }, [loggedInUser]);
+
   const filteredMenuItem = MenuItem.filter((menu) =>
     menu.roles.includes(userRole),
   );
