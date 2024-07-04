@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Typography,
   Card,
   Tooltip,
   IconButton,
-  Button,
 } from "@material-tailwind/react";
 import { FaEdit } from "react-icons/fa";
 
@@ -12,19 +11,28 @@ import { MdDeleteForever } from "react-icons/md";
 import { useStudent } from "../context/StudentContext";
 
 import EditStudent from "./EditStudent";
-import { fakeStudentData } from "../fakeStudendData";
+
 import Pagination from "./Pagination";
+import { Toaster } from "react-hot-toast";
 
-const TABLE_HEAD = ["Student Name", "Email", "StudentID ", "Grade", "", ""];
-// const TABLE_ROWS = fakeStudentData;
+import { HandleRefetchStudents } from "../api/getStudents";
 
-function TableData({ children }) {
+const TABLE_HEAD = [
+  "Student Name",
+  "Student Email",
+  "StudentID ",
+  "Grade",
+  "",
+  "",
+];
+
+function TableData({ children, cap = "" }) {
   return (
     <td className="p-4">
       <Typography
         variant="small"
         color="blue-gray"
-        className="font-normal capitalize"
+        className={`font-normal ${cap}`}
       >
         {children}
       </Typography>
@@ -32,13 +40,15 @@ function TableData({ children }) {
   );
 }
 function ViewStudents() {
-  const { studentData } = useStudent();
+  const { allStudentData, setAllStudentData } = useStudent();
 
   const [open, setOpen] = useState(false);
   const [selectedStudentToEdit, setSelectedStudentToEdit] = useState({});
+
+  const [formData, setFormData] = useState({});
   // pagination functionality start
   // const [students] = useState(studentData);
-  const students = studentData;
+  const students = allStudentData;
   const [currentPage, setCurrentPage] = useState(1);
   const [studentPerPage] = useState(6);
 
@@ -67,6 +77,21 @@ function ViewStudents() {
     setSelectedStudentToEdit(index);
   }
   // open edit student dialogue box functionality end
+
+  function handleUpdateStudent(data) {
+    setFormData(data);
+    console.log(formData);
+  }
+  useEffect(() => {
+    const fetchAndSetStudents = async function () {
+      const sortedStudent = await HandleRefetchStudents();
+      if (sortedStudent) {
+        setAllStudentData(sortedStudent);
+      }
+    };
+    fetchAndSetStudents();
+    // console.log("view student component mounted");
+  }, []);
   return (
     <div className=" flex  w-full flex-col gap-5   rounded border border-midBlack2 bg-background   p-4 shadow-sm">
       <div className="mt-[-2rem] rounded bg-midBlack p-3">
@@ -76,7 +101,7 @@ function ViewStudents() {
       </div>
 
       <Card className="   w-full">
-        {studentData.length <= 0 ? (
+        {allStudentData.length <= 0 ? (
           <Typography variant="h6" className="p-4">
             No student records
           </Typography>
@@ -113,7 +138,7 @@ function ViewStudents() {
                   studentArray,
                 ) => (
                   <tr key={username} className="even:bg-blue-gray-50/50">
-                    <TableData>{username}</TableData>
+                    <TableData cap="capitalize">{username}</TableData>
                     <TableData>{email}</TableData>
                     <TableData>{studentId}</TableData>
                     <TableData>{grade}</TableData>
@@ -161,6 +186,7 @@ function ViewStudents() {
               open={open}
               handleOpen={handleOpen}
               selectedStudentToEdit={selectedStudentToEdit}
+              onSubmit={handleUpdateStudent}
             />
           </table>
         )}
@@ -173,6 +199,7 @@ function ViewStudents() {
         moveToPreviousPage={moveToPreviousPage}
         moveToNextPage={moveToNextPage}
       />
+      <Toaster />
     </div>
   );
 }

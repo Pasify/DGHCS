@@ -1,10 +1,10 @@
+import { useState } from "react";
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
 import { Typography, Button } from "@material-tailwind/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import FormInput from "./Form/FormInput";
 import resultValidation from "../utils/viewStudentResultValidation";
-import { useState } from "react";
 function ViewStudentResult() {
   const [selectedTerm, setSelectedTerm] = useState("first Term");
   const [selectedDepartment, setSelectedDepartment] = useState("");

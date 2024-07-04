@@ -12,7 +12,6 @@ async function loginUser(data) {
     if (response.status !== 200) {
       throw new Error(`Request failed with status ${response.status}`);
     }
-
     const serverData = await response.data;
     // console.log(serverData);
     console.log(`user data fetched`);

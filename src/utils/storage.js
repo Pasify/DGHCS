@@ -1,5 +1,21 @@
 import getStudents from "../api/getStudents";
 
+export function formatAndSortStudentInfo(studentData) {
+  const studentsBasicInfo = studentData.map(
+    ({ studentID, email, grade, name, department, id }) => ({
+      studentDepartment: department,
+      studentEmail: email,
+      studentName: name,
+      studentGrade: grade,
+      studentID,
+      id,
+    }),
+  );
+  const sortedStudent = studentsBasicInfo.sort(
+    (student1, student2) => student1.id - student2.id,
+  );
+  return { studentsBasicInfo, sortedStudent };
+}
 export async function getExistingStudentRecord() {
   const existingStudentsData = sessionStorage.getItem("students");
   if (existingStudentsData) {
@@ -7,16 +23,9 @@ export async function getExistingStudentRecord() {
   } else {
     try {
       const { data: allStudents } = await getStudents();
-      const studentsBasicInfo = allStudents.map(
-        ({ studentID, email, grade, name, department }) => ({
-          studentDepartment: department,
-          studentEmail: email,
-          studentName: name,
-          studentGrade: grade,
-          studentID,
-        }),
-      );
-      sessionStorage.setItem("students", JSON.stringify(studentsBasicInfo));
+      const { studentsBasicInfo, sortedStudent } =
+        formatAndSortStudentInfo(allStudents);
+      sessionStorage.setItem("students", JSON.stringify(sortedStudent));
       return studentsBasicInfo;
     } catch (error) {
       console.error("Error fetching and caching students:", error);
@@ -41,6 +50,9 @@ export function addStudentToLocalStorage(student) {
   return listOfStudents;
 }
 
+// export function resetAllStudent(students) {
+//   sessionStorage.setItem("students", JSON.stringify(students));
+// }
 export function getTotalNumberOfStudent() {
   const existingNumberOfStudents = sessionStorage.getItem("students");
   const totalNumberOfStudent = existingNumberOfStudents

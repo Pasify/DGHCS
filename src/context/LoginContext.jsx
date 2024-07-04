@@ -27,8 +27,9 @@ function LoginProvider({ children }) {
       setToken(response.token);
       // set
       const { studentID, name, role } = response;
+      const user = { studentID, name, role };
       setLoggedInUser(response);
-      setCurrentUser({ studentID, name, role });
+      setCurrentUser(user);
     } catch (error) {
       console.log(error.message);
       throw error;

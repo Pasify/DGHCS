@@ -3,24 +3,44 @@ import {
   addStudentToLocalStorage,
   getExistingStudentRecord,
 } from "../utils/storage";
-import getStudents from "../api/getStudents";
-// import { storeData } from "../utils/storage";
 
 const StudentContext = createContext();
 
 function StudentProvider({ children }) {
   const [studentData, setStudentData] = useState([]);
+  const [allStudentData, setAllStudentData] = useState(() => {
+    const savedStudentData = sessionStorage.getItem("students");
+    return savedStudentData ? JSON.parse(savedStudentData) : [];
+  });
+
+  // async function fetchData() {
+  //   try {
+  //     // const data = await getExistingStudentRecord();
+  //     // setAllStudentsData(data);
+  //     // console.log("mounted");
+  //   } catch (error) {
+  //     throw new Error(error);
+  //   }
+  // }
+  // fetchData();
+  useEffect(() => {
+    sessionStorage.setItem("students", JSON.stringify(allStudentData));
+  }, [allStudentData]);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const data = await getExistingStudentRecord();
-        setStudentData(data);
-      } catch (error) {
-        throw new Error(error);
+    const handleStorageChange = (event) => {
+      if (event.key === "students") {
+        const updatedStudents = JSON.parse(event.newValue);
+        setAllStudentData(updatedStudents);
       }
-    }
-    fetchData();
+      console.log(event);
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
   function addStudentData(student) {
     const studentsInformation = addStudentToLocalStorage(student);
@@ -31,6 +51,8 @@ function StudentProvider({ children }) {
       value={{
         studentData,
         addStudentData,
+        allStudentData,
+        setAllStudentData,
       }}
     >
       {children}

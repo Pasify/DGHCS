@@ -25,11 +25,11 @@ function Footer() {
           <i className="fa-brands fa-twitter"></i>
           <i className="fa-brands fa-linkedin"></i>
         </div>
-        <p className="branding text-[12px]">
+        {/* <p className="branding text-[12px]">
           Website Developer
           <i className="fa fa-laptop"></i>
           <a href="https://bit.ly/samwebdeveloper"> Mr Sam</a>
-        </p>
+        </p> */}
       </div>
       <div className={`${styles.col_2}   `}>
         <h3>NEWSLETTER</h3>
